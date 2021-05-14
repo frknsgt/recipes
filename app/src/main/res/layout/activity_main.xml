@@ -6,13 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:orientation="vertical"
+        >
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="95"
+        />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:weightSum="100"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:id="@+id/homeButton"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10px"
+                android:background="#FFFF"
+                android:padding="10px"
+                android:drawableTop="@drawable/ic_baseline_home_24"
+                android:text="HOME"
+                android:layout_weight="20"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/categoryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/ic_baseline_food_bank_24"
+                android:background="#FFFF"
+                android:padding="10px"
+                android:text="CATGORIES"
+                android:layout_margin="10px"
+                android:layout_weight="20"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/todayButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MEAL DAY"
+                android:padding="10px"
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/ic_baseline_fastfood_24"
+                android:layout_margin="10px"
+                android:background="#FFFF"
+                android:layout_weight="20"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/aboutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFF"
+                android:padding="10px"
+                android:drawableTop="@drawable/ic_baseline_perm_contact_calendar_24"
+                android:text="ABOUT"
+                android:layout_margin="10px"
+
+                android:layout_gravity="center"
+                android:layout_weight="20"/>
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
