@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="95"
+            android:background="#eaede6"
         />
 
         <LinearLayout
@@ -24,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:weightSum="100"
+            android:background="#3b3a36"
             android:gravity="center"
             android:orientation="horizontal"
             >
@@ -34,8 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10px"
-                android:background="#FFFF"
-                android:padding="10px"
+                android:textColor="@color/white"
+                android:background="@android:color/transparent"                android:padding="10px"
                 android:drawableTop="@drawable/ic_baseline_home_24"
                 android:text="HOME"
                 android:layout_weight="20"/>
@@ -44,9 +46,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="@color/white"
                 android:drawableTop="@drawable/ic_baseline_food_bank_24"
-                android:background="#FFFF"
-                android:padding="10px"
+                android:background="@android:color/transparent"                android:padding="10px"
                 android:text="CATGORIES"
                 android:layout_margin="10px"
                 android:layout_weight="20"/>
@@ -56,21 +58,21 @@
                 android:layout_height="wrap_content"
                 android:text="MEAL DAY"
                 android:padding="10px"
+                android:textColor="@color/white"
                 android:layout_gravity="center"
                 android:drawableTop="@drawable/ic_baseline_fastfood_24"
                 android:layout_margin="10px"
-                android:background="#FFFF"
-                android:layout_weight="20"/>
+                android:background="@android:color/transparent"                android:layout_weight="20"/>
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/aboutButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#FFFF"
+                android:background="@android:color/transparent"
                 android:padding="10px"
+                android:textColor="@color/white"
                 android:drawableTop="@drawable/ic_baseline_perm_contact_calendar_24"
                 android:text="ABOUT"
                 android:layout_margin="10px"
-
                 android:layout_gravity="center"
                 android:layout_weight="20"/>
         </LinearLayout>
