@@ -88,7 +88,7 @@
                 <ImageView
                     android:layout_width="150sp"
                     android:layout_height="150sp"
-                    android:src="@drawable/mainCourses"/>
+                    android:src="@drawable/maincourses"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
