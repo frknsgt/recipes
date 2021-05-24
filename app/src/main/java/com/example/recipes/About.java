@@ -77,7 +77,6 @@ public class About extends Fragment {
             @SuppressLint("StaticFieldLeak")
             @Override
             protected Void doInBackground(Void... voids) {
-                db.GetAll("recipes");
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -101,6 +100,7 @@ public class About extends Fragment {
         return v;
     }
     private void getData() {
-        Log.d("TAG", "Sefa: "+list);
+        list=db.filterData("Yemekler");
+        Log.d("TAG", ""+list);
     }
 }

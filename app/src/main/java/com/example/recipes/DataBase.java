@@ -28,20 +28,15 @@ public class DataBase {
         settings = new FirebaseFirestoreSettings.Builder()
                 .setPersistenceEnabled(true)
                 .build();
-
         db.setFirestoreSettings(settings);
     }
 
     public void GetAll(String ColectionPath){
-        db.collection(ColectionPath)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection(ColectionPath).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                //  Log.d("TAG", document.getData().toString());
-
                                 hm=new HashMap();
                                 hm.put("Category", document.get("Category").toString());
                                 hm.put("Description",document.get("Description").toString());
@@ -49,27 +44,34 @@ public class DataBase {
                                 hm.put("ImagePath",document.get("ImagePath").toString());
                                 hm.put("Title",document.get("Title").toString());
                                 list.add(hm);
-                                Log.d("TAG", "0: "+list);
-                                //Log.d("TAG", document.getId() + " => " + document.getData());
                             }
-
-                        } else {
-                            // Log.d("TAG", "Error getting documents: ", task.getException());
                         }
                     }
                 });
-
-    }
-    public List test(List data){
-        return data;
     }
 
     public List<HashMap<String,String>> getList(){
-        Log.d("TAG", "data: "+list);
         return this.list;
     }
 
-    public void Get(String CollactionPath, String index){
+    public List<HashMap<String,String>> filterData(String filterText){
+        List<HashMap<String,String>> result=new ArrayList<>();
+        for (HashMap<String,String> item : list) {
+            if (item.get("Category").toString().equals(filterText)) {
+                result.add(item);
+            }
+        }
+        return result;
+    }
+
+    public class Food {
+        private String Category;
+        private  String Description;
+        private String ImagePath;
+        private  String Title;
+        private String Recipe;
+    }
+    /*public void Get(String CollactionPath, String index){
         DocumentReference docRef = db.collection(CollactionPath).document(index);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -77,6 +79,7 @@ public class DataBase {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
+                        Log.d("TAG", ""+ document.getData().toString());
                         hm=new HashMap();
                         hm.put("Category", document.get("Category").toString());
                         hm.put("Description",document.get("Description").toString());
@@ -87,11 +90,9 @@ public class DataBase {
                     } else {
                         Log.d("TAG", "No such document");
                     }
-                } else {
-                    Log.d("TAG", "get failed with ", task.getException());
                 }
             }
         });
-    }
+    }*/
 }
 
