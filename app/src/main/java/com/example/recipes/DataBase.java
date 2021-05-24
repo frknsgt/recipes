@@ -63,36 +63,5 @@ public class DataBase {
         }
         return result;
     }
-
-    public class Food {
-        private String Category;
-        private  String Description;
-        private String ImagePath;
-        private  String Title;
-        private String Recipe;
-    }
-    /*public void Get(String CollactionPath, String index){
-        DocumentReference docRef = db.collection(CollactionPath).document(index);
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        Log.d("TAG", ""+ document.getData().toString());
-                        hm=new HashMap();
-                        hm.put("Category", document.get("Category").toString());
-                        hm.put("Description",document.get("Description").toString());
-                        hm.put("Recipe",document.get("Recipe").toString());
-                        hm.put("ImagePath",document.get("ImagePath").toString());
-                        hm.put("Title",document.get("Title").toString());
-                        list.add(hm);
-                    } else {
-                        Log.d("TAG", "No such document");
-                    }
-                }
-            }
-        });
-    }*/
 }
 

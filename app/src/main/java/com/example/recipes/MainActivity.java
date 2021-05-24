@@ -33,6 +33,17 @@ public class MainActivity extends AppCompatActivity {
                 transaction.commit();
             }
         });
+        Button categoryButton= (Button) findViewById(R.id.categoryButton);
+        categoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment blankFragment = new BlankFragment();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.content, blankFragment);
+                transaction.commit();
+            }
+        });
         Button aboutButton= (Button) findViewById(R.id.aboutButton);
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
