@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="120dp"
     android:orientation="horizontal"
     android:id="@+id/rltLayout"
     android:weightSum="2">
@@ -33,7 +33,7 @@
             android:fontFamily="sans-serif-black"
             android:layout_weight="2"
             android:paddingLeft="15dp"
-            android:paddingTop="25dp"
+            android:paddingTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:textSize="18sp"
@@ -46,8 +46,7 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="fjdsşgksfgşljsdakglsşadjgsadljkgşsdjklgşjkdsakgjsdakghşsadjgkdljgksdlşgksdjgşljasdjgksdjakgkşlgkdsagşldsajkgkşljgkasdg">
+            android:layout_height="0dp">
 
         </TextView>
     </LinearLayout>
