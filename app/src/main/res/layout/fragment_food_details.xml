@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".food_details"
+    android:background="#eaede6">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cake"
+        android:paddingTop="40dp"/>
+
+    <TextView
+        android:id="@+id/title_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="pasta"
+        android:textStyle="bold"
+        android:textColor="#3b3a36"
+        android:textSize="40sp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:paddingTop="170dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="250dp"
+        android:text="malzemeler:"
+        android:paddingLeft="40dp"
+        android:textSize="32dp"></TextView>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="300dp"
+    android:paddingLeft="40dp"
+    android:textSize="20dp"
+    android:text="1 bardak un 2 bardak 1 bardak şeker blablalbalbla ve balalnalfnakls"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="380dp"
+        android:text="tarif :"
+        android:paddingLeft="40dp"
+        android:textSize="32dp"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="40dp"
+        android:paddingTop="430dp"
+        android:text="To define the default setting in XML, use the android namespace and set the autoSizeTextType attribute to none or uniform."
+        android:textSize="20dp"></TextView>
+</FrameLayout>

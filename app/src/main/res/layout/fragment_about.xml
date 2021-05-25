@@ -7,13 +7,92 @@
     android:background="#eaede6">
 
     <TextView
-        android:id="@+id/title_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ABOUT"
-        android:textSize="40sp"
-        android:textStyle="bold"
-
+    android:id="@+id/title_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="ABOUT"
+    android:textStyle="bold"
+    android:textColor="#3b3a36"
+    android:textSize="40dp"
+    android:textAlignment="center"
+    android:gravity="center_horizontal"
+    android:paddingTop="15dp"
         />
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/eyt"
+        android:paddingTop="15dp"
+        android:layout_marginLeft="25dp"
+        />
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Elif Yaren Tat"
+           android:textSize="25dp"
+           android:paddingLeft="130dp"
+           android:paddingTop="100dp"></TextView>
+
+    <ImageView
+
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/zeyno"
+        android:paddingBottom="120dp"
+        android:layout_marginLeft="25dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zeynep Ortaç"
+        android:textSize="25dp"
+        android:paddingLeft="130dp"
+        android:paddingTop="210dp"></TextView>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/furkan"
+        android:paddingTop="210dp"
+        android:layout_marginLeft="25dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Furkan Söğüt"
+        android:textSize="25dp"
+        android:paddingLeft="130dp"
+        android:paddingTop="310dp"></TextView>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ezgi"
+        android:paddingTop="310dp"
+        android:layout_marginLeft="25dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ezgi Selin Kılıç"
+        android:textSize="25dp"
+        android:paddingLeft="130dp"
+        android:paddingTop="400dp"></TextView>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ceyda"
+        android:paddingTop="460dp"
+        android:layout_marginLeft="25dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="130dp"
+        android:paddingTop="490dp"
+        android:text="Ceyda Albayrak"
+        android:textSize="25dp"></TextView>
 
 </FrameLayout>
