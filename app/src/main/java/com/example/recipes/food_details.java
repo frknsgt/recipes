@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +24,10 @@ public class food_details extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private String  Title;
+    private String  Description;
+    private String  Recipe;
+    private String  ImagePath;
 
     public food_details() {
         // Required empty public constructor
@@ -58,7 +63,19 @@ public class food_details extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Title = getArguments().getString("Title");
+        Description = getArguments().getString("Description");
+        Recipe = getArguments().getString("Recipe");
+        ImagePath = getArguments().getString("ImagePath");
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_food_details, container, false);
+        View v= inflater.inflate(R.layout.fragment_food_details, container, false);
+
+        TextView detailTitle=(TextView) v.findViewById(R.id.detailTitle);
+        TextView detailDescription=(TextView) v.findViewById(R.id.detailDescription);
+        TextView detailRecipe=(TextView) v.findViewById(R.id.detailRecipe);
+        detailTitle.setText(Title);
+        detailDescription.setText(Description);
+        detailRecipe.setText(Recipe);
+        return v;
     }
 }

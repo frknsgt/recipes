@@ -13,7 +13,7 @@
         android:paddingTop="40dp"/>
 
     <TextView
-        android:id="@+id/title_view"
+        android:id="@+id/detailTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="pasta"
@@ -28,11 +28,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="250dp"
-        android:text="malzemeler:"
+        android:text="Açıklama:"
         android:paddingLeft="40dp"
         android:textSize="32dp"></TextView>
 
 <TextView
+    android:id="@+id/detailDescription"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="300dp"
@@ -44,11 +45,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="380dp"
-        android:text="tarif :"
+        android:text="Tarif :"
         android:paddingLeft="40dp"
         android:textSize="32dp"></TextView>
 
     <TextView
+        android:id="@+id/detailRecipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="40dp"

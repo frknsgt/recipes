@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -98,7 +100,17 @@ public class BillOfFare extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 HashMap hm= list.get(position);
-                String value=(String) hm.get("Title").toString() ;
+                food_details foodDetails = new food_details();
+                Bundle args = new Bundle();
+                args.putString("Title", hm.get("Title").toString() ) ;
+                args.putString("Recipe", hm.get("Recipe").toString() ) ;
+                args.putString("Description", hm.get("Description").toString() ) ;
+                args.putString("ImagePath", hm.get("ImagePath").toString() ) ;
+                foodDetails.setArguments(args);
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.content, foodDetails);
+                transaction.commit();
             }
         });
         return v;
