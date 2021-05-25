@@ -37,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
         categoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment blankFragment = new BlankFragment();
+                Fragment categories = new Categories();
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.content, blankFragment);
+                transaction.replace(R.id.content, categories);
                 transaction.commit();
             }
         });

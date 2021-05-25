@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".BlankFragment"
+    tools:context=".Categories"
     android:background="#eaede6">
 
     <TextView
@@ -15,7 +15,8 @@
         android:text="MENU"
         android:textStyle="bold"
         android:textColor="#3b3a36"
-        android:textSize="40sp"
+        android:textSize="40dp"
+        android:layout_marginTop="12dp"
     />
 
     <GridLayout
@@ -35,9 +36,9 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_margin="20sp"
-            app:cardCornerRadius="25sp"
-            app:cardElevation="50sp"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="8dp"
             app:cardBackgroundColor="#b4c3c0"
             >
 
@@ -49,15 +50,16 @@
                 android:layout_gravity="center_vertical|center_horizontal">
 
                 <ImageView
-                    android:layout_width="150sp"
-                    android:layout_height="150sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/soup"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SOUPS"
                     android:textStyle="bold"
-                    android:textSize="30sp"
+                    android:textSize="30dp"
+                    android:layout_marginTop="20dp"
                     />
 
             </LinearLayout>
@@ -72,9 +74,9 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_margin="20sp"
-            app:cardCornerRadius="25sp"
-            app:cardElevation="50sp"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="8dp"
             app:cardBackgroundColor="#b4c3c0"
             >
 
@@ -86,8 +88,8 @@
                 android:layout_gravity="center_vertical|center_horizontal">
 
                 <ImageView
-                    android:layout_width="150sp"
-                    android:layout_height="150sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/maincourses"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -95,7 +97,9 @@
                     android:text="MAIN\nCOURSES"
                     android:gravity="center"
                     android:textStyle="bold"
-                    android:textSize="30sp"
+                    android:textSize="30dp"
+                    android:layout_marginTop="10dp"
+
                     />
 
             </LinearLayout>
@@ -110,9 +114,9 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_margin="20sp"
-            app:cardCornerRadius="25sp"
-            app:cardElevation="50sp"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="8dp"
             app:cardBackgroundColor="#b4c3c0"
             >
 
@@ -124,15 +128,16 @@
                 android:layout_gravity="center_vertical|center_horizontal">
 
                 <ImageView
-                    android:layout_width="150sp"
-                    android:layout_height="150sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/salad"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SALADS"
                     android:textStyle="bold"
-                    android:textSize="30sp"
+                    android:textSize="30dp"
+                    android:layout_marginTop="10dp"
                     />
 
             </LinearLayout>
@@ -147,9 +152,9 @@
             android:layout_gravity="fill"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_margin="20sp"
-            app:cardCornerRadius="25sp"
-            app:cardElevation="50sp"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="8dp"
             app:cardBackgroundColor="#b4c3c0"
             >
 
@@ -161,15 +166,16 @@
                 android:layout_gravity="center_vertical|center_horizontal">
 
                 <ImageView
-                    android:layout_width="150sp"
-                    android:layout_height="150sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/cake"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DESERTS"
                     android:textStyle="bold"
-                    android:textSize="30sp"
+                    android:textSize="30dp"
+                    android:layout_marginTop="20dp"
                     />
 
             </LinearLayout>
