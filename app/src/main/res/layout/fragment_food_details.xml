@@ -1,60 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:context=".food_details"
-    android:background="#eaede6">
+    android:background="#eaede6"
+    tools:context=".food_details">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_width="394dp"
+        android:layout_height="119dp"
+        android:layout_marginBottom="7dp"
         android:src="@drawable/cake"
-        android:paddingTop="40dp"/>
+        app:layout_constraintBottom_toTopOf="@+id/detailTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/detailTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="pasta"
-        android:textStyle="bold"
-        android:textColor="#3b3a36"
-        android:textSize="40sp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
-        android:paddingTop="170dp"/>
+        android:layout_width="302dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="TITLE"
+        android:textColor="#131313"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="250dp"
-        android:text="Açıklama:"
-        android:paddingLeft="40dp"
-        android:textSize="32dp"></TextView>
-
-<TextView
-    android:id="@+id/detailDescription"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="300dp"
-    android:paddingLeft="40dp"
-    android:textSize="20dp"
-    android:text="1 bardak un 2 bardak 1 bardak şeker blablalbalbla ve balalnalfnakls"></TextView>
+        android:id="@+id/textView10"
+        android:layout_width="373dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="11dp"
+        android:text="Açıklama"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/detailDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailTitle" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="380dp"
-        android:text="Tarif :"
-        android:paddingLeft="40dp"
-        android:textSize="32dp"></TextView>
+        android:id="@+id/detailDescription"
+        android:layout_width="371dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="15dp"
+        android:text="İçinizi ısıtacak çorba"
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginBottom="18dp"
+        android:text="Tarif"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/detailRecipe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailDescription" />
 
     <TextView
         android:id="@+id/detailRecipe"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="40dp"
-        android:paddingTop="430dp"
-        android:text="To define the default setting in XML, use the android namespace and set the autoSizeTextType attribute to none or uniform."
-        android:textSize="20dp"></TextView>
-</FrameLayout>
+        android:layout_width="374dp"
+        android:layout_height="219dp"
+        android:layout_marginBottom="53dp"
+        android:text="mercimek tarifi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
