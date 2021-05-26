@@ -1,5 +1,8 @@
 package com.example.recipes;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,12 +12,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.recipes.BroadcastReceiver.AlarmReceiver;
+
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        registerAlarm();
+
 
         Fragment homepageFragment= new Homepage();
         FragmentManager fragmentManager= getSupportFragmentManager();
@@ -68,5 +78,20 @@ public class MainActivity extends AppCompatActivity {
                 transaction.commit();
             }
         });
+    }
+
+    private void registerAlarm() {
+        Calendar calendar= Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY,16);
+        calendar.set(Calendar.MINUTE,37);
+        calendar.set(Calendar.SECOND,0);
+
+        Intent intent = new Intent(MainActivity.this, AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alm= (AlarmManager)this.getSystemService(this.ALARM_SERVICE);
+        alm.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
+
+
+
     }
 }
