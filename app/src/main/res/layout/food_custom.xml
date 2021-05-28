@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:id="@+id/rltLayout"
     android:weightSum="2">
@@ -11,12 +11,13 @@
         android:orientation="vertical"
         android:layout_weight="1"
         android:paddingTop="25px"
+        android:paddingBottom="25px"
         >
 
         <ImageView
             android:id="@+id/foodImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="300px"
             android:src="@drawable/cake">
 
         </ImageView>
@@ -31,22 +32,20 @@
         <TextView
             android:id="@+id/foodTitle"
             android:fontFamily="sans-serif-black"
-            android:layout_weight="2"
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:textSize="18sp"
             android:text="dsadsadas">
 
         </TextView>
         <TextView
             android:id="@+id/foodDescription"
-            android:layout_weight="4"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="wrap_content">
 
         </TextView>
     </LinearLayout>

@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void registerAlarm() {
         Calendar calendar= Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,16);
-        calendar.set(Calendar.MINUTE,37);
+        calendar.set(Calendar.HOUR_OF_DAY,1);
+        calendar.set(Calendar.MINUTE,56);
         calendar.set(Calendar.SECOND,0);
 
         Intent intent = new Intent(MainActivity.this, AlarmReceiver.class);

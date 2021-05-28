@@ -32,22 +32,25 @@ public class DataBase {
     }
 
     public void GetAll(String ColectionPath){
-        db.collection(ColectionPath).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                hm=new HashMap();
-                                hm.put("Category", document.get("Category").toString());
-                                hm.put("Description",document.get("Description").toString());
-                                hm.put("Recipe",document.get("Recipe").toString());
-                                hm.put("ImagePath",document.get("ImagePath").toString());
-                                hm.put("Title",document.get("Title").toString());
-                                list.add(hm);
-                            }
+        try {
+            db.collection(ColectionPath).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            hm = new HashMap();
+                            hm.put("Category", document.get("Category").toString());
+                            hm.put("Description", document.get("Description").toString());
+                            hm.put("Recipe", document.get("Recipe").toString());
+                            hm.put("ImagePath", document.get("ImagePath").toString());
+                            hm.put("Title", document.get("Title").toString());
+                            list.add(hm);
                         }
                     }
-                });
+                }
+            });
+        } catch (Exception e) {
+        }
     }
 
     public List<HashMap<String,String>> getList(){

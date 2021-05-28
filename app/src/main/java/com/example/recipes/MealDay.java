@@ -3,6 +3,7 @@ package com.example.recipes;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -79,7 +83,6 @@ public class MealDay extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_meal_day, container, false);
-
         AsyncTask<Void, Void, Void> task= new AsyncTask<Void, Void, Void>() {
             @SuppressLint("StaticFieldLeak")
             @Override
@@ -130,8 +133,8 @@ public class MealDay extends Fragment {
         lv.setAdapter(adapter);
     }
     public void randomMenu(List<HashMap<String,String>> menuList){
-        Random r = new Random();
-        int index = r.nextInt(menuList.size());
-        list.add(menuList.get(index));
+        DateFormat df = new SimpleDateFormat("d");
+        String date = df.format(Calendar.getInstance().getTime());
+        list.add(menuList.get(Integer.parseInt(date)%menuList.size()-1));
     }
 }

@@ -4,10 +4,16 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,10 +30,7 @@ public class food_details extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private String  Title;
-    private String  Description;
-    private String  Recipe;
-    private String  ImagePath;
+    List<HashMap<String,String>> list=new ArrayList<>();
 
     public food_details() {
         // Required empty public constructor
@@ -63,19 +66,18 @@ public class food_details extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Title = getArguments().getString("Title");
-        Description = getArguments().getString("Description");
-        Recipe = getArguments().getString("Recipe");
-        ImagePath = getArguments().getString("ImagePath");
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_food_details, container, false);
-
-        TextView detailTitle=(TextView) v.findViewById(R.id.detailTitle);
-        TextView detailDescription=(TextView) v.findViewById(R.id.detailDescription);
-        TextView detailRecipe=(TextView) v.findViewById(R.id.detailRecipe);
-        detailTitle.setText(Title);
-        detailDescription.setText(Description);
-        detailRecipe.setText(Recipe);
+        HashMap hm=new HashMap();
+        hm.put("ImagePath", getArguments().getString("ImagePath"));
+        hm.put("Title", getArguments().getString("Title"));
+        hm.put("Recipe", getArguments().getString("Recipe"));
+        hm.put("Description",  getArguments().getString("Description"));
+        list.add(hm);
+        Log.d("ff",""+list);
+        CustomDetailAdapter adapter = new CustomDetailAdapter(v.getContext(),list);
+        ListView lv = (ListView) v.findViewById(R.id.detailFood);
+        lv.setAdapter(adapter);
         return v;
     }
 }

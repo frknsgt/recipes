@@ -3,6 +3,7 @@ import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -16,6 +17,13 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,13 +34,15 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class BillOfFare extends Fragment {
+    HashMap hm;
+    FirebaseFirestore db;
+    FirebaseFirestoreSettings settings;
+    List<HashMap<String,String>> list=new ArrayList<>();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private DataBase db=new DataBase();
-    public List<HashMap<String,String>> list =new ArrayList<>();
     public String category;
 
     // TODO: Rename and change types of parameters
@@ -40,7 +50,6 @@ public class BillOfFare extends Fragment {
     private String mParam2;
 
     public BillOfFare() {
-        db.GetAll("recipes");
         // Required empty public constructor
     }
 
@@ -78,25 +87,69 @@ public class BillOfFare extends Fragment {
         category = getArguments().getString("Category");
         View v= inflater.inflate(R.layout.fragment_bill_of_fare, container, false);
 
-        AsyncTask<Void, Void, Void> task= new AsyncTask<Void, Void, Void>() {
-            @SuppressLint("StaticFieldLeak")
-            @Override
-            protected Void doInBackground(Void... voids) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                }
-                return null;
-            }
-            @Override
-            protected void onPostExecute(Void result){
-                list=db.getList();
-                getData(v);
-            }
-        };
-        task.execute();
         ListView lv = (ListView) v.findViewById(R.id.foodList);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        db = FirebaseFirestore.getInstance();
+        settings = new FirebaseFirestoreSettings.Builder()
+                .setPersistenceEnabled(true)
+                .build();
+        db.setFirestoreSettings(settings);
+
+
+        db.collection("recipes")
+                .whereEqualTo("Category", (String) category)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("TAG356", " " + document.getData());
+                                try{
+                                    hm=new HashMap();
+                                    hm.put("ImagePath",document.get("ImagePath").toString());
+                                    hm.put("Title",document.get("Title").toString());
+                                    hm.put("Recipe",document.get("Recipe").toString());
+                                    hm.put("Description", document.get("Description").toString());
+                                    list.add(hm);
+                                }catch(Exception e){
+                                }
+                            }
+                            String[] custom={"ImagePath","Title","Description"};
+                            int[] customId={R.id.foodImage,R.id.foodTitle,R.id.foodDescription};
+                            CustomAdapter adapter = new CustomAdapter(v.getContext(),list);
+                            // SimpleAdapter adapter=new SimpleAdapter( getContext() ,list,R.layout.custom_list_filter,custom,customId);
+                            lv.setAdapter(adapter);
+                            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                    HashMap hm= list.get(position);
+                                    Log.d("detail", ""+hm.get("Description").toString());
+                                    Log.d("detail", ""+hm.get("Recipe").toString());
+                                    food_details foodDetails = new food_details();
+                                    Bundle args = new Bundle();
+                                    try{
+                                        args.putString("Title", hm.get("Title").toString() ) ;
+                                        args.putString("Description", hm.get("Description").toString() ) ;
+                                        args.putString("ImagePath", hm.get("ImagePath").toString() ) ;
+                                        args.putString("Recipe", hm.get("Recipe").toString() ) ;
+                                    }catch(Exception e){}
+                                    foodDetails.setArguments(args);
+                                    FragmentManager fragmentManager = getFragmentManager();
+                                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                    transaction.replace(R.id.content, foodDetails);
+                                    transaction.commit();
+                                }
+                            });
+
+                        } else {
+
+                            Log.d("TAG356", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+
+        /*lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 HashMap hm= list.get(position);
@@ -112,15 +165,16 @@ public class BillOfFare extends Fragment {
                 transaction.replace(R.id.content, foodDetails);
                 transaction.commit();
             }
-        });
+        });*/
         return v;
     }
     private void getData(View v) {
-        list=db.filterData(category);
+        //list=db.filterData(category);
         ListView lv = (ListView) v.findViewById(R.id.foodList);
         String[] custom={"ImagePath","Title","Description"};
         int[] customId={R.id.foodImage,R.id.foodTitle,R.id.foodDescription};
-        SimpleAdapter adapter=new SimpleAdapter( getContext() ,list,R.layout.food_custom,custom,customId);
+        CustomAdapter adapter = new CustomAdapter(getContext(),list);
+        //SimpleAdapter adapter=new SimpleAdapter( getContext() ,list,R.layout.food_custom,custom,customId);
         lv.setAdapter(adapter);
     }
 }
