@@ -27,7 +27,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         NotificationCompat.Builder builder=new NotificationCompat.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher_round)
                 .setContentTitle("Günün menüsü")
-                .setContentText("Günün MENÜSÜ")
+                .setContentText("Bu günün menüsünü görmek için uygulamyı açın")
                 .setSound(alarmSound)
                 .setAutoCancel(true)
                 .setWhen(when)
