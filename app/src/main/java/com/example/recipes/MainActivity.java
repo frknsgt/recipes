@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -82,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void registerAlarm() {
         Calendar calendar= Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,1);
-        calendar.set(Calendar.MINUTE,56);
+        calendar.set(Calendar.HOUR_OF_DAY,22);
+        calendar.set(Calendar.MINUTE,18);
         calendar.set(Calendar.SECOND,0);
 
         Intent intent = new Intent(MainActivity.this, AlarmReceiver.class);
